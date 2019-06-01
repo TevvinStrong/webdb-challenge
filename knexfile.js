@@ -2,6 +2,7 @@
 module.exports = {
   development: {
     client: 'sqlite3',
+    useNullAsDefault: true,
     connection: {
       filename: './data/tevvin.db',
     },
@@ -12,7 +13,13 @@ module.exports = {
     seeds: {
       directory: "./seeds",
     },
-    useNullAsDefault: true,
+
+    //sqlite does not enforce foreign keys by default
+    pool: {
+      afterCreate: (connection, done) => {
+        connection.run("PRAGMA foreign_keys = ON", done);
+      }
+    }
   }
 };
 

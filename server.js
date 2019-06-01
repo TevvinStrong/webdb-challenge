@@ -1,17 +1,16 @@
-// Configure imports.
 const express = require('express');
 const helmet = require('helmet');
-const knex = require('knex')('devlopment');
-const knexConfig = require('./knexfile.js');
-const db = knex(knexConfig);
 
+const projectsRouter = require('./routers/project-model');
+const actionsRouter = require('./routers/actions-model');
 
-// Configure server
 const server = express();
 
-// Configure middleware(Global)
 server.use(express.json());
 server.use(helmet());
+
+server.use('/api/projects', projectsRouter);
+server.use('/api/actions', actionsRouter);
 
 // Sanity test
 server.get('/', (req, res) => {
