@@ -1,7 +1,7 @@
 // Configure imports.
 const express = require('express');
 const helmet = require('helmet');
-const knex = require('knex');
+const knex = require('knex')('devlopment');
 const knexConfig = require('./knexfile.js');
 const db = knex(knexConfig);
 
@@ -18,3 +18,5 @@ server.use(helmet());
 server.get('/', (req, res) => {
     res.send("<h1>You are not going crazy!!!1</h1>");
 });
+
+module.exports = server;
