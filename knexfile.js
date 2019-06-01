@@ -5,6 +5,13 @@ module.exports = {
     connection: {
       filename: './data/tevvin.db',
     },
+    migrations: {
+      tableName: "knex_migrations",
+      directory: "./migrations",
+    },
+    seeds: {
+      directory: "./seeds",
+    },
     useNullAsDefault: true,
   }
 };

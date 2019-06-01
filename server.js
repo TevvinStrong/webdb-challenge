@@ -9,8 +9,7 @@ const db = knex(knexConfig);
 // Configure server
 const server = express();
 
-
-// Configure middleware
+// Configure middleware(Global)
 server.use(express.json());
 server.use(helmet());
 
