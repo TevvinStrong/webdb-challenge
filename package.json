@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/TevvinStrong/webdb-challenge/issues"
   },
-  "homepage": "https://github.com/TevvinStrong/webdb-challenge#readme"
+  "homepage": "https://github.com/TevvinStrong/webdb-challenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.18.0",
+    "knex": "^0.17.2",
+    "nodemon": "^1.19.1",
+    "sqlite3": "^4.0.8"
+  }
 }
