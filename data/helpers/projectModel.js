@@ -44,20 +44,20 @@ function getWithActions(id) {
     return db('project')
         .innerJoin('action', 'project.id', 'action.project_id')
         .where({ id })
-    // .select('project', 'action')
-    // .first();
+        .select('project', 'action')
+        .first();
 }
 
-// function findWithActions(id) {
-//     return db('project')
-//         .where({ id })
-//         .first();
+function findWithActions(id) {
+    return db('project')
+        .where({ id })
+        .first();
 
-//     return db('action')
-//         .where({ project_id })
-//         // .first();
+    return db('action')
+        .where({ project_id })
+        .first();
 
-// }
+}
 
 function findWithActions(id) {
     // console.log(db('projects.id'))
@@ -65,23 +65,14 @@ function findWithActions(id) {
         .where({ project_id: id })
         .join('action', 'project.id', 'action.project_id')
         .distinct()
-
-    // return db('project')
-    //     .select('project.name', 'action.description')
-    //     .innerJoin('action', 'project.id', 'action.project_id')
-    //     .where({ id: id })
-    //     .first();
+    /*
+    return db('project')
+        .select('project.name', 'action.description')
+        .innerJoin('action', 'project.id', 'action.project_id')
+        .where({ id: id })
+        .first();
+    */
 }
-
-// router.getWithStudents('/:id/students', (req, res) => {
-//     return db('cohorts')
-//       .join('students', 'cohorts.id', 'students.cohort_id')
-//       .select('students.id', 'students.name')
-//       .then(response => {
-//           res.status(200).json(response)
-//       })
-// })
-
 
 module.exports = {
     find,

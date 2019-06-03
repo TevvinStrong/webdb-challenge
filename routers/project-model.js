@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
-const Projects = require('../data/helpers/projectModel');
+const db = require('../data/helpers/projectModel');
 
 // Routes
 
 router.get('/', (req, res) => {
-    Projects.find()
+    db.find()
         .then(projects => {
             res.status(200).json(projects)
         })
@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 });
 /*
 router.get('/:id', (req, res) => {
-    Projects.findById(req.params.id)
+    db.findById(req.params.id)
         .then(projects => {
             res.status(200).json(projects);
         })
@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
 */
 
 router.post('/', (req, res) => {
-    Projects.add(req.body)
+    db.add(req.body)
         .then(project => {
             res.status(200).json(project);
         })
@@ -37,7 +37,7 @@ router.post('/', (req, res) => {
 
 /*
 router.put('/:id', (req, res) => {
-    Projects.update(req.params.id, req.body)
+    db.update(req.params.id, req.body)
         .then(project => {
             res.status(200).json(project);
         })
@@ -47,7 +47,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    Projects.remove(req.params.id)
+    db.remove(req.params.id)
         .then(project => {
             res.status(200).json(project);
         })
@@ -58,7 +58,7 @@ router.delete('/:id', (req, res) => {
 */
 
 router.get('/:id/actions', (req, res) => {
-    Projects.findWithActions(req.params.id)
+    db.findWithActions(req.params.id)
         .then(projects => {
             res.status(200).json(projects);
         })

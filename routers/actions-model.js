@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
-const Actions = require('../data/helpers/actionModel.js');
+const db = require('../data/helpers/actionModel.js');
 
 // Routes
 router.get('/', (req, res) => {
-    Actions.find()
+    db.find()
         .then(actions => {
             res.status(200).json(actions);
         })
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    Actions.add(req.body)
+    db.add(req.body)
         .then(action => {
             res.status(200).json(action);
         })
@@ -25,7 +25,7 @@ router.post('/', (req, res) => {
 
 /*
 router.put('/:id', (req, res) => {
-    Actions.update(req.params.id, req.body)
+    db.update(req.params.id, req.body)
         .then(action => {
             res.status(200).json(action);
         })
@@ -35,7 +35,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-    Actions.remove(req.params.id)
+    db.remove(req.params.id)
         .then(action => {
             res.status(200).json(action);
         })
