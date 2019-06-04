@@ -57,6 +57,7 @@ router.delete('/:id', (req, res) => {
 });
 */
 
+
 router.get('/:id/actions', (req, res) => {
     db.findWithActions(req.params.id)
         .then(projects => {
@@ -66,6 +67,9 @@ router.get('/:id/actions', (req, res) => {
             res.status(500).json(error);
         });
 });
+
+
+
 
 
 module.exports = router; 
