@@ -2,7 +2,7 @@
 
 1. Explain the difference between `RDBMS` and `SQL`.
     - Basically Sql is a querying language that allows the coder to query
-      data, RDMS hlps manage the data the coder is trying to query.
+      data, RDBMS helps manage the data the coder is trying to query.
 
 2. Why do tables need a `primary key`?
     - The primary key allows the coder to establish realtionships

@@ -53,26 +53,21 @@ function findWithActions(id) {
         .where({ id })
         .first();
 
-    return db('action')
+    /*return db('action')
         .where({ project_id })
         .first();
-
+        */
 }
 
+/*
 function findWithActions(id) {
-    // console.log(db('projects.id'))
-    return db('project', 'action')
-        .where({ project_id: id })
-        .join('action', 'project.id', 'action.project_id')
-        .distinct()
-    /*
     return db('project')
         .select('project.name', 'action.description')
         .innerJoin('action', 'project.id', 'action.project_id')
         .where({ id: id })
         .first();
-    */
 }
+*/
 
 module.exports = {
     find,
@@ -82,4 +77,4 @@ module.exports = {
     remove,
     getWithActions,
     findWithActions,
-};
+}; 
